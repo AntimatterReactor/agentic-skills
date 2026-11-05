@@ -1,0 +1,10 @@
+{
+  "name": "agentic-skills",
+  "version": "0.1.0",
+  "description": "Personal collection of Claude Agent Skills.",
+  "author": {
+    "name": "AntimatterReactor"
+  },
+  "repository": "https://github.com/AntimatterReactor/agentic-skills",
+  "license": "Unlicense"
+}
