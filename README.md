@@ -20,7 +20,9 @@ Repo is also a Claude Code plugin marketplace, so all skills install in one step
 ├── scripts/
 │   ├── new_skill.sh        # scaffold a new skill
 │   └── validate_skills.py  # lint all SKILL.md files (also runs in CI)
-└── .github/workflows/validate.yml
+├── .github/workflows/validate.yml
+├── CLAUDE.md               # authoring rules for Claude working in this repo
+└── LICENSE                 # Unlicense
 ```
 
 ## Skills
@@ -28,6 +30,16 @@ Repo is also a Claude Code plugin marketplace, so all skills install in one step
 | Skill | Description |
 |-------|-------------|
 | [afwf](skills/afwf/SKILL.md) | Ask First, Work Fast: batch every clarifying question up front, then execute end-to-end without interruptions. |
+
+### Using a skill
+
+Claude picks skills automatically when the task matches the `description`. To force one, name it in the prompt ("use afwf", "AFWF this") or run it as slash command:
+
+```
+/afwf migrate the auth module to the new session API
+```
+
+Installed via the plugin, the name is namespaced: `/agentic-skills:afwf`.
 
 ## Add a skill
 
@@ -41,7 +53,7 @@ Edit `skills/my-skill/SKILL.md`, delete unused `scripts/` / `references/` folder
 python3 scripts/validate_skills.py
 ```
 
-Add row to Skills table above.
+Add row to Skills table above. CI runs the same validator on every push and PR.
 
 ### SKILL.md rules
 
@@ -61,17 +73,31 @@ Add row to Skills table above.
 /plugin install agentic-skills@agentic-skills
 ```
 
-### Claude Code (manual, single skill)
+Update later with `/plugin marketplace update agentic-skills`.
+
+### Claude Code (manual, global)
+
+Copy into user skills folder; available in every project:
 
 ```bash
-cp -r skills/my-skill ~/.claude/skills/
+git clone https://github.com/AntimatterReactor/agentic-skills.git
+```
+
+```bash
+mkdir -p ~/.claude/skills && cp -r agentic-skills/skills/afwf ~/.claude/skills/
+```
+
+Symlink instead of copy to pick up `git pull` updates:
+
+```bash
+ln -s "$PWD/agentic-skills/skills/afwf" ~/.claude/skills/afwf
 ```
 
 Project-scoped: copy into `.claude/skills/` of target repo instead.
 
 ### Claude.ai / Claude app
 
-Zip skill folder (folder at zip root) and upload under Settings → Capabilities → Skills:
+Zip skill folder (folder at zip root) and upload it in claude.ai settings (Skills section):
 
 ```bash
 cd skills && zip -r ../my-skill.zip my-skill
