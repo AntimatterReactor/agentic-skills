@@ -27,7 +27,7 @@ Repo is also a Claude Code plugin marketplace, so all skills install in one step
 
 | Skill | Description |
 |-------|-------------|
-| _none yet_ | |
+| [afwf](skills/afwf/SKILL.md) | Ask First, Work Fast: batch every clarifying question up front, then execute end-to-end without interruptions. |
 
 ## Add a skill
 
@@ -76,3 +76,7 @@ Zip skill folder (folder at zip root) and upload under Settings → Capabilities
 ```bash
 cd skills && zip -r ../my-skill.zip my-skill
 ```
+
+## License
+
+[Unlicense](LICENSE) — public domain. Do whatever you want.
