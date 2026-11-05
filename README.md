@@ -34,6 +34,7 @@ Repo is also a Claude Code plugin marketplace, so all skills install in one step
 | [craft-connect](skills/craft-connect/SKILL.md) | Connect Claude to ArtCraft *Craft apps (VectorCraft, FigCraft, PhotoCraft, Craft Anything, …) via their `*-cli mcp` servers. |
 | [agentic-test-loop](skills/agentic-test-loop/SKILL.md) | Run → triage → fix → rerun until green; continuous via `/loop`, a bounded Stop hook, or scheduled runs. |
 | [agentic-build-loop](skills/agentic-build-loop/SKILL.md) | Continuous creation: each iteration plans next features, asks one AFWF round, builds, verifies, commits, proposes more scope. |
+| [agentic-perf-loop](skills/agentic-perf-loop/SKILL.md) | Measure → profile → one change → re-benchmark → keep real wins (tests green) or revert; repeat until target. |
 
 ### Using a skill
 
@@ -43,7 +44,7 @@ Claude picks skills automatically when the task matches the `description`. To fo
 /afwf migrate the auth module to the new session API
 ```
 
-Skills compose: `afwf` asks first, `ultracode` fans out, `agentic-test-loop` verifies, `agentic-build-loop` drives all three per iteration.
+Skills compose: `afwf` asks first, `ultracode` fans out, `agentic-test-loop` verifies, `agentic-perf-loop` optimizes with test loop as correctness gate, `agentic-build-loop` drives them per iteration.
 
 Installed via the plugin, the name is namespaced: `/agentic-skills:afwf`.
 
