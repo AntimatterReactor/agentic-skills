@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Personal collection of Claude Agent Skills.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
