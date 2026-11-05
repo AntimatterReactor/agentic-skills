@@ -1,6 +1,6 @@
 ---
 name: afwf
-description: Ask First, Work Fast. Front-loads every clarifying question into one batched round before any side-effecting action, then executes the whole task end-to-end without further interruptions. Use for multi-step or ambiguous tasks (features, refactors, migrations, setups, research, documents) where mid-task questions would stall progress, or when the user says "AFWF", "ask first", "ask everything up front", "ask then go", or wants to hand off work and walk away.
+description: Ask First, Work Fast (AFWF). ALWAYS use when the user writes "afwf" or "AFWF" anywhere in a message (any case, e.g. "afwf: add login", "do this afwf"). Front-loads every clarifying question into one batched round before any side-effecting action, then executes the whole task end-to-end without further interruptions. Also use for multi-step or ambiguous tasks (features, refactors, migrations, setups, research, documents) where mid-task questions would stall progress, or when the user says "ask first", "ask everything up front", "ask then go", or wants to hand off work and walk away.
 ---
 
 # AFWF — Ask First, Work Fast
