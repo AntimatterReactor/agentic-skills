@@ -1,0 +1,17 @@
+{
+  "name": "agentic-skills",
+  "owner": {
+    "name": "AntimatterReactor"
+  },
+  "metadata": {
+    "description": "Personal collection of Claude Agent Skills.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "agentic-skills",
+      "source": "./",
+      "description": "All skills in this repo, bundled as one plugin."
+    }
+  ]
+}
