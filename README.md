@@ -30,6 +30,10 @@ Repo is also a Claude Code plugin marketplace, so all skills install in one step
 | Skill | Description |
 |-------|-------------|
 | [afwf](skills/afwf/SKILL.md) | Ask First, Work Fast: batch every clarifying question up front, then execute end-to-end without interruptions. |
+| [ultracode](skills/ultracode/SKILL.md) | "ultracode" / "ultracode style" = orchestrate: decompose task and spawn parallel subagents, then integrate and verify. |
+| [craft-connect](skills/craft-connect/SKILL.md) | Connect Claude to ArtCraft *Craft apps (VectorCraft, FigCraft, PhotoCraft, Craft Anything, …) via their `*-cli mcp` servers. |
+| [agentic-test-loop](skills/agentic-test-loop/SKILL.md) | Run → triage → fix → rerun until green; continuous via `/loop`, a bounded Stop hook, or scheduled runs. |
+| [agentic-build-loop](skills/agentic-build-loop/SKILL.md) | Continuous creation: each iteration plans next features, asks one AFWF round, builds, verifies, commits, proposes more scope. |
 
 ### Using a skill
 
@@ -38,6 +42,8 @@ Claude picks skills automatically when the task matches the `description`. To fo
 ```
 /afwf migrate the auth module to the new session API
 ```
+
+Skills compose: `afwf` asks first, `ultracode` fans out, `agentic-test-loop` verifies, `agentic-build-loop` drives all three per iteration.
 
 Installed via the plugin, the name is namespaced: `/agentic-skills:afwf`.
 
@@ -84,7 +90,7 @@ git clone https://github.com/AntimatterReactor/agentic-skills.git
 ```
 
 ```bash
-mkdir -p ~/.claude/skills && cp -r agentic-skills/skills/afwf ~/.claude/skills/
+mkdir -p ~/.claude/skills && cp -r agentic-skills/skills/* ~/.claude/skills/
 ```
 
 Symlink instead of copy to pick up `git pull` updates:
